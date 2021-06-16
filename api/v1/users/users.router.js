@@ -1,12 +1,18 @@
 const router = require('express').Router();
 
-const userCtrl= require('./users.controller');
-
-router.get('/login',(req, res)=>{
-    res.send("welcome")
+const {graphqlHTTP} = require('express-graphql');
+const graphqlSchema = require('./user.schema');
+const graphqlResolver= require('./user.rootResolver')
+router.use('/hello',(req,res)=>{
+    res.send("response from Rest API")
 })
 
-router.post('/register', userCtrl.userRegister);
+router.use('/',graphqlHTTP({
+    schema: graphqlSchema,
+    rootValue: graphqlResolver,
+    graphiql: true
+})
+)
 
 
 module.exports= router
