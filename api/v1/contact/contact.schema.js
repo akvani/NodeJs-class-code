@@ -6,12 +6,12 @@ const { buildSchema } = require('graphql');
 module.exports = buildSchema(`
       type Contacts{
           contactId:ID!
-          name:String!
+          contactName:String!
           age:String!
           mobile:String!
       }
       input userInput{
-        name:String!
+        contactName:String!
         age:String!
         mobile:String!
       }

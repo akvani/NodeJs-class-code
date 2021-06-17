@@ -30,7 +30,8 @@ module.exports ={
                 throw err;
         }
     },
-    contacts:()=>{
-        return Contact.find();
+    contact:()=>{
+     
+        return  Contact.find();
     }
 }
